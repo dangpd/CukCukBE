@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "wvhjG49QTF/8AlDNGONQb9YbadBg5XkGsmEhZb868O3s0gv4K8UdCaTaa4wxDxJ+gHJ8jFuWEqjt4Vyq6y363A==",
+  "success": true,
+  "projectFilePath": "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.BL\\MISA.CukCuk.BL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\DucDang\\.nuget\\packages\\dapper\\2.0.123\\dapper.2.0.123.nupkg.sha512",
+    "C:\\Users\\DucDang\\.nuget\\packages\\mysqlconnector\\2.2.5\\mysqlconnector.2.2.5.nupkg.sha512"
+  ],
+  "logs": []
+}

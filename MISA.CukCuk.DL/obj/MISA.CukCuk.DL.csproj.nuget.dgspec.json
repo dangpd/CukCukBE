@@ -1,0 +1,130 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.DL\\MISA.CukCuk.DL.csproj": {}
+  },
+  "projects": {
+    "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.Common\\MISA.CukCuk.Common.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.Common\\MISA.CukCuk.Common.csproj",
+        "projectName": "MISA.CukCuk.Common",
+        "projectPath": "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.Common\\MISA.CukCuk.Common.csproj",
+        "packagesPath": "C:\\Users\\DucDang\\.nuget\\packages\\",
+        "outputPath": "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.Common\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\DucDang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.DL\\MISA.CukCuk.DL.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.DL\\MISA.CukCuk.DL.csproj",
+        "projectName": "MISA.CukCuk.DL",
+        "projectPath": "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.DL\\MISA.CukCuk.DL.csproj",
+        "packagesPath": "C:\\Users\\DucDang\\.nuget\\packages\\",
+        "outputPath": "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.DL\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\DucDang\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.Common\\MISA.CukCuk.Common.csproj": {
+                "projectPath": "D:\\Misa Training\\Cukcuk\\MISA.CukCuk\\MISA.CukCuk.Common\\MISA.CukCuk.Common.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Dapper": {
+              "target": "Package",
+              "version": "[2.0.123, )"
+            },
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

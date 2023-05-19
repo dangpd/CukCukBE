@@ -1,0 +1,16 @@
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.csproj.AssemblyReference.cache
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.GeneratedMSBuildEditorConfig.editorconfig
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.AssemblyInfoInputs.cache
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.AssemblyInfo.cs
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.csproj.CoreCompileInputs.cache
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\bin\Debug\net6.0\MISA.CukCuk.Common.deps.json
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\bin\Debug\net6.0\MISA.CukCuk.Common.dll
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\bin\Debug\net6.0\MISA.CukCuk.Common.pdb
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.dll
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\refint\MISA.CukCuk.Common.dll
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.pdb
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\ref\MISA.CukCuk.Common.dll
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.Resource.DataResource.resources
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.Resource.MoreInfo.resources
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.Resource.Resource.resources
+D:\Misa Training\Cukcuk\MISA.CukCuk\MISA.CukCuk.Common\obj\Debug\net6.0\MISA.CukCuk.Common.csproj.GenerateResource.cache
