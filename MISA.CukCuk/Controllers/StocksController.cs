@@ -17,9 +17,11 @@ namespace MISA.CukCuk.API.Controllers
 
         #endregion
 
+        #region
         public StocksController(IStockBL stockBL) : base(stockBL)
         {
             _stockBL = stockBL;
         }
+        #endregion
     }
 }

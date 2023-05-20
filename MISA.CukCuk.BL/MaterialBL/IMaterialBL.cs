@@ -17,14 +17,14 @@ namespace MISA.CukCuk.BL.MaterialBL
         /// <param name="material"></param>
         /// <param name="listConversionUnit"></param>
         /// <returns></returns>
-        public ServiceResult InsertMaterial(InforMaterial inforMaterial);
+        public int InsertMaterial(InforMaterial inforMaterial);
 
         /// <summary>
         /// Cập nhập nguyên vật liệu
         /// </summary>
         /// <param name="inforMaterial"></param>
         /// <returns></returns>
-        public ServiceResult UpdateMaterial(Guid materialId, InforMaterial updateMaterial);
+        public int UpdateMaterial(Guid materialId, InforMaterial updateMaterial);
 
         /// <summary>
         /// Lấy nguyên liệu theo id

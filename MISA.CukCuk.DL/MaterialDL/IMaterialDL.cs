@@ -39,13 +39,5 @@ namespace MISA.CukCuk.DL.MaterialDL
         /// <param name="idRecord"> id bản ghi cần xóa </param>
         /// <returns> Số bản ghi bị tác động </returns>
         public int DeleteOneRecord(Guid idRecord);
-
-        /// <summary>
-        /// Kiểm tra mã trùng
-        /// </summary>
-        /// <param name="recordCode"></param>
-        /// <param name="recordID"></param>
-        /// <returns>bool kiểm tra có trùng hay không</returns>
-        public int CheckDuplicateCode(Guid? recordId, string? recordCode);
     }
 }

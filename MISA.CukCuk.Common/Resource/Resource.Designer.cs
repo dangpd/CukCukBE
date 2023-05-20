@@ -61,6 +61,78 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Server không tìm thấy bất kì tài nguyên nào, bản ghi không tồn tại.
+        /// </summary>
+        public static string DevMsg_DeleteFailed {
+            get {
+                return ResourceManager.GetString("DevMsg_DeleteFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bắt được exception.
+        /// </summary>
+        public static string DevMsg_Exception {
+            get {
+                return ResourceManager.GetString("DevMsg_Exception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Không có bản ghi nào trong database hoặc nó đã được xóa trước đó.
+        /// </summary>
+        public static string DevMsg_GetFail {
+            get {
+                return ResourceManager.GetString("DevMsg_GetFail", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server không tìm thấy bất kì tài nguyên nào, gọi procedure trong database thất bại.
+        /// </summary>
+        public static string DevMsg_InsertFailed {
+            get {
+                return ResourceManager.GetString("DevMsg_InsertFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dữ liệu đầu vào không hợp lệ.
+        /// </summary>
+        public static string DevMsg_InvalidData {
+            get {
+                return ResourceManager.GetString("DevMsg_InvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lỗi xảy ra server.
+        /// </summary>
+        public static string DevMsg_ServerError {
+            get {
+                return ResourceManager.GetString("DevMsg_ServerError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Server không tìm thấy bất kì tài nguyên nào, bản ghi không tồn tại.
+        /// </summary>
+        public static string DevMsg_UpdateFailed {
+            get {
+                return ResourceManager.GetString("DevMsg_UpdateFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to .
+        /// </summary>
+        public static string Exception {
+            get {
+                return ResourceManager.GetString("Exception", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to m.ModifiedDate DESC.
         /// </summary>
         public static string SortModifiedDateDESC {
@@ -106,11 +178,38 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Xoá thất bại, vui lòng thử lại.
+        /// </summary>
+        public static string UserMsg_DeleteFailed {
+            get {
+                return ResourceManager.GetString("UserMsg_DeleteFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã đã tồn tại trong hệ thống.
         /// </summary>
         public static string UserMsg_DuplicateCode {
             get {
                 return ResourceManager.GetString("UserMsg_DuplicateCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mã đã tồn tại trong hệ thống.
+        /// </summary>
+        public static string UserMsg_DuplicateCode1 {
+            get {
+                return ResourceManager.GetString("UserMsg_DuplicateCode1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Có lỗi xảy ra, vui lòng liên hệ MISA để được hỗ trợ.
+        /// </summary>
+        public static string UserMsg_Exception {
+            get {
+                return ResourceManager.GetString("UserMsg_Exception", resourceCulture);
             }
         }
         
@@ -124,11 +223,29 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Thêm mới thất bại, vui lòng thử lại.
+        /// </summary>
+        public static string UserMsg_InsertFailed {
+            get {
+                return ResourceManager.GetString("UserMsg_InsertFailed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã nhân viên không đúng định dạng.
         /// </summary>
         public static string UserMsg_InvalidCode {
             get {
                 return ResourceManager.GetString("UserMsg_InvalidCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dữ liệu đầu vào không hợp lệ.
+        /// </summary>
+        public static string UserMsg_InvalidData {
+            get {
+                return ResourceManager.GetString("UserMsg_InvalidData", resourceCulture);
             }
         }
         
@@ -178,6 +295,15 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Có lỗi xảy ra vui lòng liên hệ MISA.
+        /// </summary>
+        public static string UserMsg_ServerError {
+            get {
+                return ResourceManager.GetString("UserMsg_ServerError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Mã kho không được bỏ trống.
         /// </summary>
         public static string UserMsg_StockCodeNotEmpty {
@@ -201,6 +327,15 @@ namespace MISA.CukCuk.Common.Resource {
         public static string UserMsg_UnitNameNotEmpty {
             get {
                 return ResourceManager.GetString("UserMsg_UnitNameNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Sửa thất bại, vui lòng thử lại.
+        /// </summary>
+        public static string UserMsg_UpdateFailed {
+            get {
+                return ResourceManager.GetString("UserMsg_UpdateFailed", resourceCulture);
             }
         }
     }

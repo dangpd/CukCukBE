@@ -35,7 +35,7 @@ namespace MISA.CukCuk.BL.MaterialBL
             return _materialDL.GetMaterialByID(materialId); // bản ghi cần lấy 
         }
 
-        public ServiceResult InsertMaterial(InforMaterial inforMaterial)
+        public int InsertMaterial(InforMaterial inforMaterial)
         {
             var validateMaterial = ValidateData(inforMaterial.Material); // validate nguyên vật liệu
             var baseConversionUnit = new BaseBL<ConversionUnit>(new BaseDL<ConversionUnit>());
@@ -155,62 +155,14 @@ namespace MISA.CukCuk.BL.MaterialBL
                     Data = new ErrorResult
                     {
                         ErrorCode = Common.Enums.ErrorCode.InsertFail,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InsertFailed,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InsertFailed,
+                        DevMsg = Common.Resource.Resource.DevMsg_InsertFailed,
+                        UserMsg = Common.Resource.Resource.UserMsg_InsertFailed,
                         MoreInfo = Common.Resource.MoreInfo.MoreInfo_InsertFailed
                     }
                 };
             }
         }
-        protected override ServiceResult ValidateCustom(Material? record)
-        {
 
-            int duplicateCode = _materialDL.CheckDuplicateCode(record.MaterialId, record.MaterialCode);
-
-            if (duplicateCode == 0)
-            {
-                return new ServiceResult
-                {
-                    IsSuccess = false,
-                    Data = new ErrorResult()
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.DuplicateCode,
-                        DevMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-                        UserMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_DuplicateCode
-                    }
-                };
-            }
-
-            return new ServiceResult { IsSuccess = true };
-        }
-        /// <summary>
-        /// Kiểm tra mã trùng
-        /// </summary>
-        /// <param name="employee"></param>
-        /// <param name="employeeID"></param>
-        /// <returns>bool kiểm tra có trùng hay không</returns>
-        //protected override ServiceResult CheckDuplicateCode(Guid? materialId, Material material)
-        //{
-        //    int duplicateCode = _materialDL.CheckDuplicateCode(materialId, material.MaterialCode);
-
-        //    if (duplicateCode == 0)
-        //    {
-        //        return new ServiceResult
-        //        {
-        //            IsSuccess = false,
-        //            Data = new ErrorResult()
-        //            {
-        //                ErrorCode = Common.Enums.ErrorCode.DuplicateCode,
-        //                DevMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-        //                UserMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-        //                MoreInfo = Common.Resource.MoreInfo.MoreInfo_DuplicateCode
-        //            }
-        //        };
-        //    }
-
-        //    return new ServiceResult { IsSuccess = true };
-        //}
         #endregion
     }
 }

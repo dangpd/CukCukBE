@@ -1,7 +1,11 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MISA.CukCuk.BL.BaseBL;
+using MISA.CukCuk.Common.Entities;
 using MISA.CukCuk.Common.Entities.DTO;
+using MISA.CukCuk.Common.Error;
+using MySqlConnector;
+using System;
 
 namespace MISA.CukCuk.BaseController
 {
@@ -41,30 +45,14 @@ namespace MISA.CukCuk.BaseController
                 // Nếu kq trả về null return lỗi server
                 if (listRecord == null)
                 {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.ServerError,
-                        DevMsg = Common.Resource.DataResource.DevMsg_ServerError,
-                        UserMsg = Common.Resource.DataResource.UserMsg_ServerError,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_ServerError,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
+                    return StatusCode(StatusCodes.Status204NoContent, null);
                 }
                 // Thành công return danh sách record
                 return StatusCode(StatusCodes.Status200OK, listRecord);
             }
-            catch (Exception ex)
+            catch (Exception exception)
             {
-                // Lỗi exception
-                Console.WriteLine(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                {
-                    ErrorCode = Common.Enums.ErrorCode.Exception,
-                    DevMsg = Common.Resource.DataResource.DevMsg_Exception,
-                    UserMsg = Common.Resource.DataResource.UserMsg_Exception,
-                    MoreInfo = Common.Resource.MoreInfo.MoreInfo_Exception,
-                    TraceId = HttpContext.TraceIdentifier
-                });
+                return StatusCode(StatusCodes.Status400BadRequest, HandleError.GenerateExceptionResult(exception));
             }
         }
 
@@ -80,35 +68,16 @@ namespace MISA.CukCuk.BaseController
             {
                 // Lấy kết quả trả về bên Bussiness Layer
                 var reordGetByID = _baseBL.GetRecordById(idRecord);
-
-                // Nếu kq trả về null return lỗi dữ liệu định dạng không hợp lệ
-                if (reordGetByID == null)
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.InvalidData,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InvalidData,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InvalidData,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_InvalidData,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
-
-                // Thành công return id record
+                // Thành công return data
                 return StatusCode(StatusCodes.Status200OK, reordGetByID);
             }
-            catch (Exception ex)
+            catch (MISAException misaEx)
             {
-                // Lỗi exception
-                Console.WriteLine(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                {
-                    ErrorCode = Common.Enums.ErrorCode.Exception,
-                    DevMsg = Common.Resource.DataResource.DevMsg_Exception,
-                    UserMsg = Common.Resource.DataResource.UserMsg_Exception,
-                    MoreInfo = Common.Resource.MoreInfo.MoreInfo_Exception,
-                    TraceId = HttpContext.TraceIdentifier
-                });
+                return StatusCode(StatusCodes.Status400BadRequest, misaEx.ErrorResult);
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, HandleError.GenerateExceptionResult(exception));
             }
         }
 
@@ -120,7 +89,7 @@ namespace MISA.CukCuk.BaseController
         /// <param name="pageNumber"> Vị trí trang </param>
         /// <returns></returns>
         [HttpGet("Filter")]
-        public virtual IActionResult FilterAndPaging([FromQuery] string? textSearch, [FromQuery] long pageSize, [FromQuery] long pageNumber, [FromQuery] string? sort)
+        public virtual IActionResult FilterAndPaging([FromQuery] string? textSearch, [FromQuery] long pageSize = 20, [FromQuery] long pageNumber = 1, [FromQuery] string? sort = "ModifiedDate DESC")
         {
             try
             {
@@ -128,49 +97,24 @@ namespace MISA.CukCuk.BaseController
                 var filterEmployee = _baseBL.GetPaging(pageSize, pageNumber, textSearch, sort);
 
                 // Thành công return danh sách record
-                if (filterEmployee != null)
+                if (filterEmployee == null)
                 {
-                    return StatusCode(StatusCodes.Status200OK, filterEmployee);
-                }
-                // Nếu null thất bại return lỗi nhập liệu
-                else if ((object)filterEmployee == null)
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.InvalidData,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InvalidData,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InvalidData,
-                        MoreInfo = Common.Resource.Resource.UserMsg_PageSize,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
-                else
-                {
-                    // Nếu kq trả về null return lỗi server
-                    return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.ServerError,
-                        DevMsg = Common.Resource.DataResource.DevMsg_ServerError,
-                        UserMsg = Common.Resource.DataResource.UserMsg_ServerError,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_ServerError,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
+                    return StatusCode(StatusCodes.Status204NoContent);
 
-
+                }
+                return StatusCode(StatusCodes.Status200OK, filterEmployee);
             }
-            catch (Exception ex)
+            catch (MISAException misaEx)
             {
-                // Lỗi exception
-                Console.WriteLine(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                {
-                    ErrorCode = Common.Enums.ErrorCode.Exception,
-                    DevMsg = Common.Resource.DataResource.DevMsg_ServerError,
-                    UserMsg = Common.Resource.DataResource.UserMsg_ServerError,
-                    MoreInfo = Common.Resource.MoreInfo.MoreInfo_Exception,
-                    TraceId = HttpContext.TraceIdentifier
-                });
+                return StatusCode(StatusCodes.Status400BadRequest, misaEx.ErrorResult);
+            }
+            catch (MySqlException mySqlException)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, HandleError.GenerateDuplicateCodeErrorResult<Material>(mySqlException));
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, HandleError.GenerateExceptionResult(exception));
             }
         }
 
@@ -183,64 +127,23 @@ namespace MISA.CukCuk.BaseController
         public virtual IActionResult InsertRecord(T record)
         {
             // Lấy kết quả trả về bên Bussiness Layer
-            var result = _baseBL.InsertOneRecord(record);
 
             try
             {
-                // Thành công return 1
-                if (result.IsSuccess)
-                {
-                    return StatusCode(StatusCodes.Status201Created, 1);
-                }
-
-                // Nếu result bằng false và errorcode == invalid data return lỗi nhập liệu
-                else if (!result.IsSuccess && result.Data.ErrorCode == Common.Enums.ErrorCode.InvalidData)
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult
-                    {
-                        ErrorCode = result.Data.ErrorCode,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InvalidData,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InvalidData,
-                        MoreInfo = result.Data.MoreInfo,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
-                else if(!result.IsSuccess && result.Data.ErrorCode == Common.Enums.ErrorCode.DuplicateCode)
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult
-                    {
-                        ErrorCode = result.Data.ErrorCode,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InvalidData,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InvalidData,
-                        MoreInfo = result.Data.MoreInfo,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
-                // Nếu kq trả về null return lỗi server
-                else
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.ServerError,
-                        DevMsg = Common.Resource.DataResource.DevMsg_Exception,
-                        UserMsg = Common.Resource.DataResource.UserMsg_Exception,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_ServerError,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
+                int result = _baseBL.InsertOneRecord(record);
+                return StatusCode(StatusCodes.Status201Created, result);
             }
-            catch (Exception ex)
+            catch (MISAException misaEx)
             {
-                // lỗi exception
-                Console.WriteLine(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                {
-                    ErrorCode = Common.Enums.ErrorCode.Exception,
-                    DevMsg = Common.Resource.DataResource.DevMsg_Exception,
-                    UserMsg = Common.Resource.DataResource.UserMsg_Exception,
-                    MoreInfo = Common.Resource.MoreInfo.MoreInfo_Exception,
-                    TraceId = HttpContext.TraceIdentifier
-                });
+                return StatusCode(StatusCodes.Status400BadRequest, misaEx.ErrorResult);
+            }
+            catch (MySqlException mySqlException)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, HandleError.GenerateDuplicateCodeErrorResult<T>(mySqlException));
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, HandleError.GenerateExceptionResult(exception));
             }
         }
 
@@ -254,53 +157,22 @@ namespace MISA.CukCuk.BaseController
         public virtual IActionResult UpdateRecord([FromBody] T record, [FromRoute] Guid idRecord)
         {
             // Lấy kết quả trả về bên Bussiness Layer
-            var result = _baseBL.UpdateOneRecord(record, idRecord);
             try
             {
-                // Thành công return 1
-                if (result.IsSuccess)
-                {
-                    return StatusCode(StatusCodes.Status200OK, 1);
-                }
-
-                // Nếu result bằng false và errorcode == invalid data return lỗi nhập liệu
-                else if (!result.IsSuccess && result.Data.ErrorCode == Common.Enums.ErrorCode.InvalidData)
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.InvalidData,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InvalidData,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InvalidData,
-                        MoreInfo = result.Data.MoreInfo,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
-
-                // Nếu kq trả về null return lỗi server
-                else
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.ServerError,
-                        DevMsg = Common.Resource.DataResource.DevMsg_ServerError,
-                        UserMsg = Common.Resource.DataResource.UserMsg_ServerError,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_ServerError,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
+                int result = _baseBL.UpdateOneRecord(record, idRecord);
+                return StatusCode(StatusCodes.Status200OK, result);
             }
-            catch (Exception ex)
+            catch (MISAException misaEx)
             {
-                // lỗi exception
-                Console.WriteLine(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                {
-                    ErrorCode = Common.Enums.ErrorCode.Exception,
-                    DevMsg = Common.Resource.DataResource.DevMsg_Exception,
-                    UserMsg = Common.Resource.DataResource.UserMsg_Exception,
-                    MoreInfo = Common.Resource.MoreInfo.MoreInfo_Exception,
-                    TraceId = HttpContext.TraceIdentifier
-                });
+                return StatusCode(StatusCodes.Status400BadRequest, misaEx.ErrorResult);
+            }
+            catch (MySqlException mySqlException)
+            {
+                return StatusCode(StatusCodes.Status400BadRequest, HandleError.GenerateDuplicateCodeErrorResult<T>(mySqlException));
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, HandleError.GenerateExceptionResult(exception));
             }
         }
 
@@ -313,52 +185,18 @@ namespace MISA.CukCuk.BaseController
         public virtual IActionResult DeleteOneRecord([FromRoute] Guid idRecord)
         {
             // Lấy kết quả trả về bên Bussiness Layer
-            var result = _baseBL.DeleteOneRecord(idRecord);
             try
             {
-                // Thành công return 1
-                if (result.IsSuccess)
-                {
-                    return StatusCode(StatusCodes.Status200OK, 1);
-                }
-
-                // Nếu result bằng false và errorcode == invalid data return lỗi nhập liệu
-                else if (!result.IsSuccess && result.Data.ErrorCode == Common.Enums.ErrorCode.InvalidData)
-                {
-                    return StatusCode(StatusCodes.Status400BadRequest, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.DeleteFail,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InvalidData,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InvalidData,
-                        MoreInfo = result.Data.MoreInfo,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
-
-                // Nếu result bằng false và errorcode == invalid data return lỗi nhập liệu
-                else
-                {
-                    return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.ServerError,
-                        DevMsg = Common.Resource.DataResource.UserMsg_ServerError,
-                        UserMsg = Common.Resource.DataResource.UserMsg_ServerError,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_ServerError,
-                        TraceId = HttpContext.TraceIdentifier
-                    });
-                }
+                int result = _baseBL.DeleteOneRecord(idRecord);
+                return StatusCode(StatusCodes.Status200OK, result);
             }
-            catch (Exception ex)
+            catch (MISAException misaEx)
             {
-                Console.WriteLine(ex.ToString());
-                return StatusCode(StatusCodes.Status500InternalServerError, new ErrorResult
-                {
-                    ErrorCode = Common.Enums.ErrorCode.Exception,
-                    DevMsg = Common.Resource.DataResource.DevMsg_Exception,
-                    UserMsg = Common.Resource.DataResource.UserMsg_Exception,
-                    MoreInfo = Common.Resource.MoreInfo.MoreInfo_Exception,
-                    TraceId = HttpContext.TraceIdentifier
-                });
+                return StatusCode(StatusCodes.Status400BadRequest, misaEx.ErrorResult);
+            }
+            catch (Exception exception)
+            {
+                return StatusCode(StatusCodes.Status500InternalServerError, HandleError.GenerateExceptionResult(exception));
             }
         }
 

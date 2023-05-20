@@ -24,47 +24,5 @@ namespace MISA.CukCuk.BL.StockBL
             stockDL = new StockDL();
             _stockDL = stockDL;
         }
-        protected override ServiceResult ValidateCustom(Stock? record)
-        {
-            int duplicateCode = _stockDL.CheckDuplicateCode(record.StockId,record.StockCode);
-
-            if (duplicateCode == 0)
-            {
-                return new ServiceResult
-                {
-                    IsSuccess = false,
-                    Data = new ErrorResult()
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.DuplicateCode,
-                        DevMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-                        UserMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_DuplicateCode
-                    }
-                };
-            }
-
-            return new ServiceResult { IsSuccess = true };
-        }
-        //protected override ServiceResult CheckDuplicateCode(Guid? recordID, Stock record)
-        //{
-        //    int duplicateCode = _stockDL.CheckDuplicateCode(recordID, record.StockCode);
-
-        //    if (duplicateCode == 0)
-        //    {
-        //        return new ServiceResult
-        //        {
-        //            IsSuccess = false,
-        //            Data = new ErrorResult()
-        //            {
-        //                ErrorCode = Common.Enums.ErrorCode.DuplicateCode,
-        //                DevMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-        //                UserMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-        //                MoreInfo = Common.Resource.MoreInfo.MoreInfo_DuplicateCode
-        //            }
-        //        };
-        //    }
-
-        //    return new ServiceResult { IsSuccess = true };
-        //}
     }
 }

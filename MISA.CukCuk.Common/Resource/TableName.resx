@@ -117,59 +117,24 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DevMsg_DeleteFailed" xml:space="preserve">
-    <value>Server không tìm thấy bất kì tài nguyên nào, bản ghi không tồn tại</value>
-    <comment>Thông báo cho dev khi xoá thất bại</comment>
+  <data name="ConversionUnit" xml:space="preserve">
+    <value>conversionunit</value>
+    <comment>Bảng đơn vị chuyển đổi</comment>
   </data>
-  <data name="DevMsg_Exception" xml:space="preserve">
-    <value>Bắt được exception</value>
-    <comment>Thông báo cho dev khi gặp exception</comment>
+  <data name="Material" xml:space="preserve">
+    <value>material</value>
+    <comment>Bảng nguyên vật liệu</comment>
   </data>
-  <data name="DevMsg_GetFail" xml:space="preserve">
-    <value>Không có bản ghi nào trong database hoặc nó đã được xóa trước đó</value>
+  <data name="MaterialCategory" xml:space="preserve">
+    <value>materialcategory</value>
+    <comment>Bảng nhóm nguyên vật liệu</comment>
   </data>
-  <data name="DevMsg_InsertFailed" xml:space="preserve">
-    <value>Server không tìm thấy bất kì tài nguyên nào, gọi procedure trong database thất bại</value>
-    <comment>Thông báo cho dev khi thêm mới bản ghi thất bại</comment>
+  <data name="Stock" xml:space="preserve">
+    <value>stock</value>
+    <comment>Bảng kho ngầm định</comment>
   </data>
-  <data name="DevMsg_InvalidData" xml:space="preserve">
-    <value>Dữ liệu đầu vào không hợp lệ</value>
-    <comment>Thông báo cho dev khi dữ liệu đầu vào không hợp lệ</comment>
-  </data>
-  <data name="DevMsg_ServerError" xml:space="preserve">
-    <value>Lỗi xảy ra server</value>
-    <comment>Thông báo cho dev lỗi server</comment>
-  </data>
-  <data name="DevMsg_UpdateFailed" xml:space="preserve">
-    <value>Server không tìm thấy bất kì tài nguyên nào, bản ghi không tồn tại</value>
-    <comment>Thông báo cho dev khi sửa bản ghi thất bại</comment>
-  </data>
-  <data name="UserMsg_DeleteFailed" xml:space="preserve">
-    <value>Xoá thất bại, vui lòng thử lại</value>
-    <comment>Thông báo cho người dùng khi xoá thất bại</comment>
-  </data>
-  <data name="UserMsg_DuplicateCode" xml:space="preserve">
-    <value>Mã đã tồn tại trong hệ thống</value>
-    <comment>Thông báo cho người dùng khi mã bị trùng</comment>
-  </data>
-  <data name="UserMsg_Exception" xml:space="preserve">
-    <value>Có lỗi xảy ra, vui lòng liên hệ MISA để được hỗ trợ</value>
-    <comment>Thông báo lỗi cho người dùng phải liên hệ CSKH MISA</comment>
-  </data>
-  <data name="UserMsg_InsertFailed" xml:space="preserve">
-    <value>Thêm mới thất bại, vui lòng thử lại</value>
-    <comment>Thông báo cho người dùng khi thêm mới thất bại</comment>
-  </data>
-  <data name="UserMsg_InvalidData" xml:space="preserve">
-    <value>Dữ liệu đầu vào không hợp lệ</value>
-    <comment>Thông báo cho người dùng khi dữ liệu đầu vào không hợp lệ</comment>
-  </data>
-  <data name="UserMsg_ServerError" xml:space="preserve">
-    <value>Có lỗi xảy ra vui lòng liên hệ MISA</value>
-    <comment>Thông báo lỗi tới người dùng</comment>
-  </data>
-  <data name="UserMsg_UpdateFailed" xml:space="preserve">
-    <value>Sửa thất bại, vui lòng thử lại</value>
-    <comment>Thông báo cho người dùng khi sửa thất bại</comment>
+  <data name="Unit" xml:space="preserve">
+    <value>unit</value>
+    <comment>Bảng đơn vị chuyển đổi</comment>
   </data>
 </root>

@@ -2,6 +2,8 @@
 using Microsoft.AspNetCore.Mvc;
 using MISA.CukCuk.BaseController;
 using MISA.CukCuk.BL.BaseBL;
+using MISA.CukCuk.BL.StockBL;
+using MISA.CukCuk.BL.UnitBL;
 using MISA.CukCuk.Common.Entities;
 
 namespace MISA.CukCuk.API.Controllers
@@ -10,8 +12,16 @@ namespace MISA.CukCuk.API.Controllers
     [ApiController]
     public class UnitsController : BasesController<Unit>
     {
-        public UnitsController(IBaseBL<Unit> baseBL) : base(baseBL)
+        #region Field
+
+        private IUnitBL _unitBL;
+
+        #endregion
+        #region
+        public UnitsController(IUnitBL unitBL) : base(unitBL)
         {
+            _unitBL = unitBL;
         }
+        #endregion
     }
 }

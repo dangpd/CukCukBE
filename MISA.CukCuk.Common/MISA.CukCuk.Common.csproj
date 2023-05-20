@@ -7,10 +7,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Resource\DataResource.Designer.cs">
+    <PackageReference Include="MySqlConnector" Version="2.2.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Resource\Error.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
-      <DependentUpon>DataResource.resx</DependentUpon>
+      <DependentUpon>Error.resx</DependentUpon>
     </Compile>
     <Compile Update="Resource\MoreInfo.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -22,12 +26,17 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resource.resx</DependentUpon>
     </Compile>
+    <Compile Update="Resource\TableName.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>TableName.resx</DependentUpon>
+    </Compile>
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resource\DataResource.resx">
+    <EmbeddedResource Update="Resource\Error.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>DataResource.Designer.cs</LastGenOutput>
+      <LastGenOutput>Error.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Update="Resource\MoreInfo.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
@@ -36,6 +45,10 @@
     <EmbeddedResource Update="Resource\Resource.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resource\TableName.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>TableName.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

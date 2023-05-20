@@ -23,47 +23,5 @@ namespace MISA.CukCuk.BL.UnitBL
             unitDL = new UnitDL();
             _unitDL = unitDL;
         }
-        protected override ServiceResult ValidateCustom(Unit? record)
-        {
-            int duplicateCode = _unitDL.CheckDuplicateName(record.ConversionUnitId, record.ConversionUnitName);
-
-            if (duplicateCode == 0)
-            {
-                return new ServiceResult
-                {
-                    IsSuccess = false,
-                    Data = new ErrorResult()
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.DuplicateCode,
-                        DevMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-                        UserMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_DuplicateCode
-                    }
-                };
-            }
-
-            return new ServiceResult { IsSuccess = true };
-        }
-        //protected override ServiceResult CheckDuplicateCode(Guid? recordID, Unit record)
-        //{
-        //    int duplicateCode = _unitDL.CheckDuplicateName(recordID, record.ConversionUnitName);
-
-        //    if (duplicateCode == 0)
-        //    {
-        //        return new ServiceResult
-        //        {
-        //            IsSuccess = false,
-        //            Data = new ErrorResult()
-        //            {
-        //                ErrorCode = Common.Enums.ErrorCode.DuplicateCode,
-        //                DevMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-        //                UserMsg = Common.Resource.DataResource.UserMsg_DuplicateCode,
-        //                MoreInfo = Common.Resource.MoreInfo.MoreInfo_DuplicateCode
-        //            }
-        //        };
-        //    }
-
-        //    return new ServiceResult { IsSuccess = true };
-        //}
     }
 }

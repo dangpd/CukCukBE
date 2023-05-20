@@ -7,52 +7,6 @@ using System.Threading.Tasks;
 namespace MISA.CukCuk.Common.Enums
 {
     /// <summary>
-    /// Mã lỗi
-    /// </summary>
-    public enum ErrorCode
-    {
-        /// <summary>
-        /// Lỗi ngoại lệ
-        /// </summary>
-        Exception = 0,
-
-        /// <summary>
-        /// Thêm thất bại
-        /// </summary>
-        InsertFail = 1,
-
-        /// <summary>
-        /// Sửa thất bại
-        /// </summary>
-        UpdateFail = 2,
-
-        /// <summary>
-        /// Xóa thất bại
-        /// </summary>
-        DeleteFail = 3,
-
-        /// <summary>
-        /// Lỗi dữ liệu đầu vào không hợp lệ
-        /// </summary>
-        InvalidData = 400,
-
-        /// <summary>
-        /// Lỗi sai url
-        /// </summary>
-        NotFound = 404,
-
-
-        /// <summary>
-        /// Lỗi trùng mã
-        /// </summary>
-        DuplicateCode = 402,
-
-        /// <summary>
-        /// Lỗi phía back-end
-        /// </summary>
-        ServerError = 500,
-    }
-    /// <summary>
     /// Trạng thái theo dõi
     /// </summary>
     public enum StatusFollow

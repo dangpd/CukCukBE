@@ -10,12 +10,5 @@ namespace MISA.CukCuk.DL.StockDL
 {
     public interface IStockDL : IBaseDL<Stock>
     {
-        /// <summary>
-        /// Kiểm tra mã trùng
-        /// </summary>
-        /// <param name="recordCode"></param>
-        /// <param name="recordID"></param>
-        /// <returns>bool kiểm tra có trùng hay không</returns>
-        public int CheckDuplicateCode(Guid? recordId, string? recordCode);
     }
 }

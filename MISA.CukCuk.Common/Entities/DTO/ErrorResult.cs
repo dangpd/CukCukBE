@@ -12,7 +12,7 @@ namespace MISA.CukCuk.Common.Entities.DTO
         /// <summary>
         /// Mã lỗi
         /// </summary>
-        public ErrorCode? ErrorCode { get; set; }
+        public string ErrorCode { get; set; }
 
         /// <summary>
         /// Thông báo cho Dev. Thông báo ngắn gọn để thông báo cho Dev biết vấn đề đang gặp phải
@@ -36,7 +36,7 @@ namespace MISA.CukCuk.Common.Entities.DTO
 
         public ErrorResult() { }
 
-        public ErrorResult(ErrorCode? errorCode, string? devMsg, string? userMsg, object? moreInfo, string? traceId)
+        public ErrorResult(string errorCode, string? devMsg, string? userMsg, object? moreInfo, string? traceId)
         {
             ErrorCode = errorCode;
             DevMsg = devMsg;

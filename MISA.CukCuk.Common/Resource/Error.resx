@@ -117,112 +117,56 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="DevMsg_DeleteFailed" xml:space="preserve">
-    <value>Server không tìm thấy bất kì tài nguyên nào, bản ghi không tồn tại</value>
-    <comment>Thông báo cho dev khi xoá thất bại</comment>
+  <data name="AnUnknownError" xml:space="preserve">
+    <value>Có lỗi xảy ra. Vui lòng liên hệ MISA</value>
+    <comment>Có lỗi xảy ra. Vui lòng liên hệ MISA</comment>
   </data>
-  <data name="DevMsg_Exception" xml:space="preserve">
-    <value>Bắt được exception</value>
-    <comment>Thông báo cho dev khi gặp exception</comment>
+  <data name="DuplicateCode" xml:space="preserve">
+    <value>Trùng mã</value>
+    <comment>Trùng mã</comment>
   </data>
-  <data name="DevMsg_GetFail" xml:space="preserve">
-    <value>Không có bản ghi nào trong database hoặc nó đã được xóa trước đó</value>
+  <data name="DuplicateConversionUnit" xml:space="preserve">
+    <value>001</value>
+    <comment>Trùng đơn vị chuyển đổi</comment>
   </data>
-  <data name="DevMsg_InsertFailed" xml:space="preserve">
-    <value>Server không tìm thấy bất kì tài nguyên nào, gọi procedure trong database thất bại</value>
-    <comment>Thông báo cho dev khi thêm mới bản ghi thất bại</comment>
+  <data name="DuplicateMaterial" xml:space="preserve">
+    <value>002</value>
+    <comment>Trùng mã nguyên vật liệu</comment>
   </data>
-  <data name="DevMsg_InvalidData" xml:space="preserve">
-    <value>Dữ liệu đầu vào không hợp lệ</value>
-    <comment>Thông báo cho dev khi dữ liệu đầu vào không hợp lệ</comment>
+  <data name="DuplicateMaterialCode" xml:space="preserve">
+    <value>003</value>
+    <comment>Trùng mã nguyên vật liệu</comment>
   </data>
-  <data name="DevMsg_ServerError" xml:space="preserve">
-    <value>Lỗi xảy ra server</value>
-    <comment>Thông báo cho dev lỗi server</comment>
+  <data name="DuplicateStockCode" xml:space="preserve">
+    <value>004</value>
+    <comment>Trùng mã kho ngầm định</comment>
   </data>
-  <data name="DevMsg_UpdateFailed" xml:space="preserve">
-    <value>Server không tìm thấy bất kì tài nguyên nào, bản ghi không tồn tại</value>
-    <comment>Thông báo cho dev khi sửa bản ghi thất bại</comment>
+  <data name="DuplicateUnitName" xml:space="preserve">
+    <value>005</value>
+    <comment>Trùng tên đơn vị tính</comment>
   </data>
   <data name="Exception" xml:space="preserve">
-    <value />
+    <value>500</value>
+    <comment>Lỗi exception</comment>
   </data>
-  <data name="SortModifiedDateDESC" xml:space="preserve">
-    <value>m.ModifiedDate DESC</value>
-    <comment>Sắp theo ngày sửa giảm dần</comment>
+  <data name="InvalidData" xml:space="preserve">
+    <value>Dữ liệu không hợp lệ</value>
+    <comment>Dữ liệu không hợp lệ</comment>
   </data>
-  <data name="SortModifiedDateDESC1" xml:space="preserve">
-    <value>ModifiedDate DESC</value>
-    <comment>Sắp theo ngày sửa giảm dần</comment>
+  <data name="InvalidDataCode" xml:space="preserve">
+    <value>007</value>
+    <comment>Dữ liệu không hợp lê</comment>
   </data>
-  <data name="UserMsg_CategoryCodeNotEmpty" xml:space="preserve">
-    <value>Mã nhóm nguyên vật liệu không được bỏ trống</value>
+  <data name="NoDefine" xml:space="preserve">
+    <value>008</value>
+    <comment>Lỗi không xác định</comment>
   </data>
-  <data name="UserMsg_CategoryNameNotEmpty" xml:space="preserve">
-    <value>Tên nhóm nguyên vật liệu không được bỏ trống</value>
+  <data name="NotExistOrDeleted" xml:space="preserve">
+    <value>009</value>
+    <comment>Bản ghi đã bị xóa hoặc không tồn tại</comment>
   </data>
-  <data name="UserMsg_ConversionUnitIdNotEmpty" xml:space="preserve">
-    <value>Đơn vị tính không được bỏ trống</value>
-  </data>
-  <data name="UserMsg_DeleteFailed" xml:space="preserve">
-    <value>Xoá thất bại, vui lòng thử lại</value>
-    <comment>Thông báo cho người dùng khi xoá thất bại</comment>
-  </data>
-  <data name="UserMsg_DuplicateCode" xml:space="preserve">
-    <value>Mã đã tồn tại trong hệ thống</value>
-  </data>
-  <data name="UserMsg_DuplicateCode1" xml:space="preserve">
-    <value>Mã đã tồn tại trong hệ thống</value>
-    <comment>Thông báo cho người dùng khi mã bị trùng</comment>
-  </data>
-  <data name="UserMsg_Exception" xml:space="preserve">
-    <value>Có lỗi xảy ra, vui lòng liên hệ MISA để được hỗ trợ</value>
-    <comment>Thông báo lỗi cho người dùng phải liên hệ CSKH MISA</comment>
-  </data>
-  <data name="UserMsg_FeatureNotEmpty" xml:space="preserve">
-    <value>Tính chất không được bỏ trống</value>
-  </data>
-  <data name="UserMsg_InsertFailed" xml:space="preserve">
-    <value>Thêm mới thất bại, vui lòng thử lại</value>
-    <comment>Thông báo cho người dùng khi thêm mới thất bại</comment>
-  </data>
-  <data name="UserMsg_InvalidCode" xml:space="preserve">
-    <value>Mã nhân viên không đúng định dạng</value>
-  </data>
-  <data name="UserMsg_InvalidData" xml:space="preserve">
-    <value>Dữ liệu đầu vào không hợp lệ</value>
-    <comment>Thông báo cho người dùng khi dữ liệu đầu vào không hợp lệ</comment>
-  </data>
-  <data name="UserMsg_InvalidEmail" xml:space="preserve">
-    <value>Email không đúng định dạng</value>
-  </data>
-  <data name="UserMsg_KeyAttribue" xml:space="preserve">
-    <value>Id không được bỏ trống</value>
-  </data>
-  <data name="UserMsg_MaterialCodeNotEmpty" xml:space="preserve">
-    <value>Mã nguyên vật liệu không được bỏ trống</value>
-  </data>
-  <data name="UserMsg_MaterialNameNotEmpty" xml:space="preserve">
-    <value>Tên nguyên vật liệu không được bỏ trống</value>
-  </data>
-  <data name="UserMsg_PageSize" xml:space="preserve">
-    <value>Nhập thiếu số bản ghi trên trang</value>
-  </data>
-  <data name="UserMsg_ServerError" xml:space="preserve">
-    <value>Có lỗi xảy ra vui lòng liên hệ MISA</value>
-    <comment>Thông báo lỗi tới người dùng</comment>
-  </data>
-  <data name="UserMsg_StockCodeNotEmpty" xml:space="preserve">
-    <value>Mã kho không được bỏ trống</value>
-  </data>
-  <data name="UserMsg_StockNameNotEmpty" xml:space="preserve">
-    <value>Tên kho không được bỏ trống</value>
-  </data>
-  <data name="UserMsg_UnitNameNotEmpty" xml:space="preserve">
-    <value>Tên đơn vị tính không được bỏ trống</value>
-  </data>
-  <data name="UserMsg_UpdateFailed" xml:space="preserve">
-    <value>Sửa thất bại, vui lòng thử lại</value>
-    <comment>Thông báo cho người dùng khi sửa thất bại</comment>
+  <data name="NotExistOrIsDeleted" xml:space="preserve">
+    <value>Bản ghi đã bị xóa hoặc không tồn tại</value>
+    <comment>Bản ghi đã bị xóa hoặc không tồn tại</comment>
   </data>
 </root>

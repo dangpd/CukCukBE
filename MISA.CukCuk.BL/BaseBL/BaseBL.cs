@@ -92,7 +92,7 @@ namespace MISA.CukCuk.BL.BaseBL
 
         }
 
-        public ServiceResult InsertOneRecord(T record)
+        public int InsertOneRecord(T record)
         {
             // validate
             var validateResults = ValidateData(record);
@@ -106,17 +106,7 @@ namespace MISA.CukCuk.BL.BaseBL
                     Data = validateResults.Data,
                 };
             }
-            // Kiểm tra tồn tại
-            //var checkCode = CheckDuplicateCode(null, record);
-            //// thất bại return lỗi
-            //if (checkCode != null)
-            //{
-            //    return new ServiceResult
-            //    {
-            //        IsSuccess = false,
-            //        Data = checkCode.Data
-            //    };
-            //}
+
             // thành công chạy proceduce
             var numberOfAffectedRows = _baseDL.InsertOneRecord(record);
             // Xử lí kết quả thành công
@@ -136,15 +126,15 @@ namespace MISA.CukCuk.BL.BaseBL
                     Data = new ErrorResult
                     {
                         ErrorCode = Common.Enums.ErrorCode.InsertFail,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InsertFailed,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InsertFailed,
+                        DevMsg = Common.Resource.Resource.DevMsg_InsertFailed,
+                        UserMsg = Common.Resource.Resource.UserMsg_InsertFailed,
                         MoreInfo = Common.Resource.MoreInfo.MoreInfo_InsertFailed
                     }
                 };
             }
         }
 
-        public ServiceResult UpdateOneRecord(T record, Guid idRecord)
+        public int UpdateOneRecord(T record, Guid idRecord)
         {
             // Lấy kết quả trả về bên Data Layer
             var validateResults = ValidateData(record);
@@ -159,17 +149,6 @@ namespace MISA.CukCuk.BL.BaseBL
                 };
             }
             
-            // Kiểm tra tồn tại
-            //var checkCode = CheckDuplicateCode(idRecord, record);
-            // thất bại return lỗi
-            //if (checkCode != null)
-            //{
-            //    return new ServiceResult
-            //    {
-            //        IsSuccess = false,
-            //        Data = checkCode.Data
-            //    };
-            //}
             // thành công chạy proceduce
             var numberOfAffectedRows = _baseDL.UpdateOneRecord(record, idRecord);
             // Xử lí kết quả thành công
@@ -189,14 +168,14 @@ namespace MISA.CukCuk.BL.BaseBL
                     Data = new ErrorResult
                     {
                         ErrorCode = Common.Enums.ErrorCode.UpdateFail,
-                        DevMsg = Common.Resource.DataResource.DevMsg_UpdateFailed,
-                        UserMsg = Common.Resource.DataResource.UserMsg_UpdateFailed,
+                        DevMsg = Common.Resource.Resource.DevMsg_UpdateFailed,
+                        UserMsg = Common.Resource.Resource.UserMsg_UpdateFailed,
                         MoreInfo = Common.Resource.MoreInfo.MoreInfo_UpdateFailed
                     }
                 };
             }
         }
-        public ServiceResult DeleteOneRecord(Guid idRecord)
+        public int DeleteOneRecord(Guid idRecord)
         {
             // thành công chạy proceduce
             var numberOfAffectedRows = _baseDL.DeleteOneRecord(idRecord);
@@ -218,14 +197,14 @@ namespace MISA.CukCuk.BL.BaseBL
                     Data = new ErrorResult
                     {
                         ErrorCode = Common.Enums.ErrorCode.DeleteFail,
-                        DevMsg = Common.Resource.DataResource.DevMsg_DeleteFailed,
-                        UserMsg = Common.Resource.DataResource.UserMsg_DeleteFailed,
+                        DevMsg = Common.Resource.Resource.DevMsg_DeleteFailed,
+                        UserMsg = Common.Resource.Resource.UserMsg_DeleteFailed,
                         MoreInfo = Common.Resource.MoreInfo.MoreInfo_DeleteFailed
                     }
                 };
             }
         }
-        public ServiceResult ValidateData(T? record)
+        public ErrorResult ValidateData(T? record)
         {
             // Xử lý
             bool isValid = true;
@@ -360,8 +339,8 @@ namespace MISA.CukCuk.BL.BaseBL
                     Data = new ErrorResult
                     {
                         ErrorCode = Common.Enums.ErrorCode.InvalidData,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InvalidData,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InvalidData,
+                        DevMsg = Common.Resource.Resource.DevMsg_InvalidData,
+                        UserMsg = Common.Resource.Resource.UserMsg_InvalidData,
                         MoreInfo = errorList
                     }
                 };
@@ -389,9 +368,9 @@ namespace MISA.CukCuk.BL.BaseBL
             return null;
         }
 
-        protected virtual ServiceResult ValidateCustom(T? record)
+        protected virtual ErrorResult ValidateCustom(T? record)
         {
-            return new ServiceResult { };
+            return new ErrorResult { };
         }
 
         /// <summary>

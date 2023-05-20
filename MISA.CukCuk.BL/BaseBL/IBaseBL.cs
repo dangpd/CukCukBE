@@ -27,7 +27,7 @@ namespace MISA.CukCuk.BL.BaseBL
         /// </summary>
         /// <param name="record"> <typeparamref name="T"/> </param>
         /// <returns> Số bản ghi bị tác động </returns>
-        public ServiceResult InsertOneRecord(T record);
+        public int InsertOneRecord(T record);
 
         /// <summary>
         /// Cập nhập 1 bản ghi <typeparamref name="T"/>
@@ -35,14 +35,14 @@ namespace MISA.CukCuk.BL.BaseBL
         /// <param name="record"> Thông tin bản ghi cần cập nhập <typeparamref name="T"/> </param>
         /// <param name="idRecord"> id bản ghi cần cập nhập </param>
         /// <returns> Số bản ghi bị tác động </returns>
-        public ServiceResult UpdateOneRecord(T record, Guid idRecord);
+        public int UpdateOneRecord(T record, Guid idRecord);
 
         /// <summary>
         /// Xóa 1 bản ghi <typeparamref name="T"/>
         /// </summary>
         /// <param name="idRecord"> id bản ghi cần xóa </param>
         /// <returns> Số bản ghi bị tác động </returns>
-        public ServiceResult DeleteOneRecord(Guid idRecord);
+        public int DeleteOneRecord(Guid idRecord);
 
         /// <summary>
         /// Phân trang
