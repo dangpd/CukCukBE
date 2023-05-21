@@ -54,15 +54,5 @@ namespace MISA.CukCuk.BL.BaseBL
         /// <returns></returns>
         public PagingData<T> GetPaging(long pageSize, long pageNumber, string? textSearch, string? sort);
 
-        /// <summary>
-        /// Phân trang
-        /// </summary>
-        /// <param name="textSearch"> chuỗi search where </param>
-        /// <param name="pageSize"> kích thước 1 trang </param>
-        /// <param name="pageNumber"> vị trí trang </param>
-        /// <param name="sort"> loại sắp xếp </param>
-        /// <returns></returns>
-        public PagingData<T> GetPagingMaterial(long pageSize, long pageNumber, string? textSearch, string? sort);
-
     }
 }

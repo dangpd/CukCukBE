@@ -110,7 +110,7 @@ namespace MISA.CukCuk.BaseController
             }
             catch (MySqlException mySqlException)
             {
-                return StatusCode(StatusCodes.Status400BadRequest, HandleError.GenerateDuplicateCodeErrorResult<Material>(mySqlException));
+                return StatusCode(StatusCodes.Status400BadRequest, HandleError.GenerateDuplicateCodeErrorResult<T>(mySqlException));
             }
             catch (Exception exception)
             {

@@ -11,12 +11,13 @@ namespace MISA.CukCuk.API.Controllers
     [ApiController]
     public class MaterialCategorysController : BasesController<MaterialCategory>
     {
-        #region
-        private  IMaterialCategoryBL _materialCategoryBL;
+        #region Feild
+
+        private IMaterialCategoryBL _materialCategoryBL;
 
         #endregion
 
-        #region
+        #region Contructor
         public MaterialCategorysController(IMaterialCategoryBL materialCategoryBL) : base(materialCategoryBL)
         {
             _materialCategoryBL = materialCategoryBL;

@@ -6,6 +6,13 @@ using System.Threading.Tasks;
 
 namespace MISA.CukCuk.Common.Enums
 {
+    public enum ErrorCode
+    {
+        InvalidData = 400,
+        Exception = 500,
+        Nodifine = 501,
+        NotExistOrDeleted = 502,
+    }
     /// <summary>
     /// Trạng thái theo dõi
     /// </summary>

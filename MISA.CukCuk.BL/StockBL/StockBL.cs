@@ -19,10 +19,14 @@ namespace MISA.CukCuk.BL.StockBL
 
         #endregion
 
+        #region Contructor
         public StockBL(IStockDL stockDL) : base(stockDL)
         {
             stockDL = new StockDL();
             _stockDL = stockDL;
         }
+
+        #endregion
+
     }
 }

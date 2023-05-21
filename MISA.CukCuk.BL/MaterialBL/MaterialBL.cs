@@ -1,6 +1,8 @@
 ﻿using MISA.CukCuk.BL.BaseBL;
 using MISA.CukCuk.Common.Entities;
 using MISA.CukCuk.Common.Entities.DTO;
+using MISA.CukCuk.Common.Error;
+using MISA.CukCuk.Common.Resource;
 using MISA.CukCuk.DL.BaseDL;
 using MISA.CukCuk.DL.MaterialDL;
 using System;
@@ -42,11 +44,15 @@ namespace MISA.CukCuk.BL.MaterialBL
             // Validate nguyên vật liệu
             if (validateMaterial != null)
             {
-                return new ServiceResult
-                {
-                    IsSuccess = false,
-                    Data = validateMaterial.Data,
-                };
+                throw new MISAException(
+                    new ErrorResult(
+                            Common.Enums.ErrorCode.InvalidData,
+                            Resource.DevMsg_InvalidData,
+                            Resource.UserMsg_InvalidData,
+                            validateMaterial,
+                            ""
+                        )
+                    );
             }
             // Validate danh sách đơn vị chuyển đổi
             foreach (var item in inforMaterial.ListConversionUnits)
@@ -55,73 +61,39 @@ namespace MISA.CukCuk.BL.MaterialBL
                 // thất bại return lỗi
                 if (validateConversionUnit != null)
                 {
-                    return new ServiceResult
-                    {
-                        IsSuccess = false,
-                        Data = validateConversionUnit.Data,
-                    };
+                    throw new MISAException(
+                        new ErrorResult(
+                                Common.Enums.ErrorCode.InvalidData,
+                                Resource.DevMsg_InvalidData,
+                                Resource.UserMsg_InvalidData,
+                                validateMaterial,
+                                ""
+                            )
+                        );
                 }
             }
-            //var checkCode = CheckDuplicateCode(null, inforMaterial.Material);
-            //// thất bại return lỗi
-            //if (checkCode != null)
-            //{
-            //    return new ServiceResult
-            //    {
-            //        IsSuccess = false,
-            //        Data = checkCode.Data
-            //    };
-            //}
-            var numberOfAffectedRows = _materialDL.InsertMaterial(inforMaterial);
-            // Xử lí kết quả thành công
-            if (numberOfAffectedRows > 0)
-            {
-                return new ServiceResult
-                {
-                    IsSuccess = true,
-                };
-            }
-            else
-            {
-                // Thất bại return lỗi server
-                return new ServiceResult
-                {
-                    IsSuccess = false,
-                    Data = new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.InsertFail,
-                        DevMsg = Common.Resource.DataResource.DevMsg_InsertFailed,
-                        UserMsg = Common.Resource.DataResource.UserMsg_InsertFailed,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_InsertFailed
-                    }
-                };
-            }
+
+            return _materialDL.InsertMaterial(inforMaterial);
         }
 
-        public ServiceResult UpdateMaterial(Guid materialId, InforMaterial updateMaterial)
+        public int UpdateMaterial(Guid materialId, InforMaterial updateMaterial)
         {
             var validateMaterial = ValidateData(updateMaterial.Material); // validate nguyên vật liệu
             var baseConversionUnit = new BaseBL<ConversionUnit>(new BaseDL<ConversionUnit>());
             // Validate nguyên vật liệu
             if (validateMaterial != null)
             {
-                return new ServiceResult
-                {
-                    IsSuccess = false,
-                    Data = validateMaterial.Data,
-                };
+                throw new MISAException(
+                    new ErrorResult(
+                            Common.Enums.ErrorCode.InvalidData,
+                            Resource.DevMsg_InvalidData,
+                            Resource.UserMsg_InvalidData,
+                            validateMaterial,
+                            ""
+                        )
+                    );
             }
 
-            //var checkCode = CheckDuplicateCode(materialId, updateMaterial.Material);
-            //// thất bại return lỗi
-            //if (checkCode != null)
-            //{
-            //    return new ServiceResult
-            //    {
-            //        IsSuccess = false,
-            //        Data = checkCode.Data
-            //    };
-            //}
             // Validate danh sách đơn vị chuyển đổi
             foreach (var item in updateMaterial.ListConversionUnits)
             {
@@ -129,38 +101,19 @@ namespace MISA.CukCuk.BL.MaterialBL
                 // thất bại return lỗi
                 if (validateConversionUnit != null)
                 {
-                    return new ServiceResult
-                    {
-                        IsSuccess = false,
-                        Data = validateConversionUnit.Data,
-                    };
+                    throw new MISAException(
+                        new ErrorResult(
+                                Common.Enums.ErrorCode.InvalidData,
+                                Resource.DevMsg_InvalidData,
+                                Resource.UserMsg_InvalidData,
+                                validateMaterial,
+                                ""
+                            )
+                        );
                 }
             }
 
-            var numberOfAffectedRows = _materialDL.UpdateMaterial(materialId, updateMaterial);
-            // Xử lí kết quả thành công
-            if (numberOfAffectedRows > 0)
-            {
-                return new ServiceResult
-                {
-                    IsSuccess = true,
-                };
-            }
-            else
-            {
-                // Thất bại return lỗi server
-                return new ServiceResult
-                {
-                    IsSuccess = false,
-                    Data = new ErrorResult
-                    {
-                        ErrorCode = Common.Enums.ErrorCode.InsertFail,
-                        DevMsg = Common.Resource.Resource.DevMsg_InsertFailed,
-                        UserMsg = Common.Resource.Resource.UserMsg_InsertFailed,
-                        MoreInfo = Common.Resource.MoreInfo.MoreInfo_InsertFailed
-                    }
-                };
-            }
+            return _materialDL.UpdateMaterial(materialId, updateMaterial);
         }
 
         #endregion

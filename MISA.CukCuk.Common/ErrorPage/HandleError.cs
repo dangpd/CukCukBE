@@ -14,7 +14,7 @@ namespace MISA.CukCuk.Common.Error
         public static ErrorResult? GenerateExceptionResult(Exception exception)
         {
             return new ErrorResult(
-                Common.Resource.Error.NoDefine,
+                Enums.ErrorCode.Exception,
                 exception.Message,
                 exception.Message,
                 "https://openapi.misa.com.vn/errorcode/e002",
@@ -50,15 +50,15 @@ namespace MISA.CukCuk.Common.Error
 
 
                 return new ErrorResult(
+                    Enums.ErrorCode.InvalidData,
+                    Common.Resource.Error.DuplicateCode,
+                    Common.Resource.Error.DuplicateCode,
                     errorCode,
-                    Common.Resource.Error.DuplicateCode,
-                    Common.Resource.Error.DuplicateCode,
-                    "https://openapi.misa.com.vn/errorcode/e003",
                     "");
             }
 
             return new ErrorResult(
-                Common.Resource.Error.NoDefine,
+                Enums.ErrorCode.InvalidData,
                 Common.Resource.Error.AnUnknownError,
                 Common.Resource.Error.AnUnknownError,
                 "https://openapi.misa.com.vn/errorcode/e002",

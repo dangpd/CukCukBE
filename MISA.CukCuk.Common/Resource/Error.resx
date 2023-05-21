@@ -150,12 +150,8 @@
     <comment>Lỗi exception</comment>
   </data>
   <data name="InvalidData" xml:space="preserve">
-    <value>Dữ liệu không hợp lệ</value>
+    <value>400</value>
     <comment>Dữ liệu không hợp lệ</comment>
-  </data>
-  <data name="InvalidDataCode" xml:space="preserve">
-    <value>007</value>
-    <comment>Dữ liệu không hợp lê</comment>
   </data>
   <data name="NoDefine" xml:space="preserve">
     <value>008</value>

@@ -28,8 +28,5 @@ namespace MISA.CukCuk.Controllers
         }
 
         #endregion
-        #region Method
-        
-        #endregion
     }
 }

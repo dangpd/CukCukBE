@@ -133,20 +133,11 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Dữ liệu không hợp lệ.
+        ///   Looks up a localized string similar to 400.
         /// </summary>
         public static string InvalidData {
             get {
                 return ResourceManager.GetString("InvalidData", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to 007.
-        /// </summary>
-        public static string InvalidDataCode {
-            get {
-                return ResourceManager.GetString("InvalidDataCode", resourceCulture);
             }
         }
         

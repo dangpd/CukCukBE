@@ -18,10 +18,14 @@ namespace MISA.CukCuk.BL.UnitBL
 
         #endregion
 
+        #region Contructor
         public UnitBL(IUnitDL unitDL) : base(unitDL)
         {
             unitDL = new UnitDL();
             _unitDL = unitDL;
         }
+
+        #endregion
+
     }
 }

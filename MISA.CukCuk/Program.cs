@@ -1,8 +1,14 @@
 using MISA.CukCuk.BL.BaseBL;
 using MISA.CukCuk.BL.MaterialBL;
+using MISA.CukCuk.BL.MaterialCategoryBL;
+using MISA.CukCuk.BL.StockBL;
+using MISA.CukCuk.BL.UnitBL;
 using MISA.CukCuk.DL;
 using MISA.CukCuk.DL.BaseDL;
+using MISA.CukCuk.DL.MaterialCategoryDL;
 using MISA.CukCuk.DL.MaterialDL;
+using MISA.CukCuk.DL.StockDL;
+using MISA.CukCuk.DL.UnitDL;
 
 var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
@@ -26,6 +32,12 @@ builder.Services.AddScoped(typeof(IBaseBL<>), typeof(BaseBL<>));
 builder.Services.AddScoped(typeof(IBaseDL<>), typeof(BaseDL<>));
 builder.Services.AddScoped<IMaterialDL, MaterialDL>();
 builder.Services.AddScoped<IMaterialBL, MaterialBL>();
+builder.Services.AddScoped<IStockDL, StockDL>();
+builder.Services.AddScoped<IStockBL, StockBL>();
+builder.Services.AddScoped<IUnitDL, UnitDL>();
+builder.Services.AddScoped<IUnitBL, UnitBL>();
+builder.Services.AddScoped<IMaterialCategoryDL, MaterialCategoryDL>();
+builder.Services.AddScoped<IMaterialCategoryBL, MaterialCategoryBL>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddCors(options =>
