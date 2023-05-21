@@ -94,7 +94,7 @@ namespace MISA.CukCuk.BaseController
             try
             {
                 // Lấy kết quả trả về bên Bussiness Layer
-                var filterEmployee = _baseBL.GetPaging(pageSize, pageNumber, filterPagings, sort);
+                var filterEmployee = _baseBL.GetPaging(pageSize, pageNumber, filterPagings, sort);  
 
                 // Thành công return danh sách record
                 if (filterEmployee == null)
