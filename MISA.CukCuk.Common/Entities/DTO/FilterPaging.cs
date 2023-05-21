@@ -16,12 +16,7 @@ namespace MISA.CukCuk.Common.Entities.DTO
         /// <summary>
         /// Phép cần lọc ( LIKE, NOTLIKE, =  )
         /// </summary>
-        public string? Operate { get; set; }
-
-        /// <summary>
-        /// Nối chuỗi query ( AND, OR )
-        /// </summary>
-        public string? Addition { get; set; }
+        public string? Operater { get; set; }
 
         /// <summary>
         /// Từ cần lọc

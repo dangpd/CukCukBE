@@ -88,18 +88,18 @@ namespace MISA.CukCuk.BaseController
         /// <param name="pageSize"> Số bản ghi trên trang </param>
         /// <param name="pageNumber"> Vị trí trang </param>
         /// <returns></returns>
-        [HttpGet("Filter")]
-        public virtual IActionResult FilterAndPaging([FromQuery] string? textSearch, [FromQuery] long pageSize = 20, [FromQuery] long pageNumber = 1, [FromQuery] string? sort = "ModifiedDate DESC")
+        [HttpPost("Filter")]
+        public virtual IActionResult FilterAndPaging([FromBody] List<FilterPaging> filterPagings, [FromQuery] long pageSize = 20, [FromQuery] long pageNumber = 1, [FromQuery] string? sort = "ModifiedDate DESC")
         {
             try
             {
                 // Lấy kết quả trả về bên Bussiness Layer
-                var filterEmployee = _baseBL.GetPaging(pageSize, pageNumber, textSearch, sort);
+                var filterEmployee = _baseBL.GetPaging(pageSize, pageNumber, filterPagings, sort);
 
                 // Thành công return danh sách record
                 if (filterEmployee == null)
                 {
-                    return StatusCode(StatusCodes.Status204NoContent);
+                    return StatusCode(StatusCodes.Status204NoContent,null);
 
                 }
                 return StatusCode(StatusCodes.Status200OK, filterEmployee);

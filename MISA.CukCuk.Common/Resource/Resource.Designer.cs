@@ -133,24 +133,6 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to m.ModifiedDate DESC.
-        /// </summary>
-        public static string SortModifiedDateDESC {
-            get {
-                return ResourceManager.GetString("SortModifiedDateDESC", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ModifiedDate DESC.
-        /// </summary>
-        public static string SortModifiedDateDESC1 {
-            get {
-                return ResourceManager.GetString("SortModifiedDateDESC1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Mã nhóm nguyên vật liệu không được bỏ trống.
         /// </summary>
         public static string UserMsg_CategoryCodeNotEmpty {

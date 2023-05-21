@@ -52,7 +52,7 @@ namespace MISA.CukCuk.BL.BaseBL
         /// <param name="pageNumber"> vị trí trang </param>
         /// <param name="sort"> loại sắp xếp </param>
         /// <returns></returns>
-        public PagingData<T> GetPaging(long pageSize, long pageNumber, string? textSearch, string? sort);
+        public PagingData<T> GetPaging(long pageSize, long pageNumber, List<FilterPaging> textSearch, string? sort);
 
     }
 }

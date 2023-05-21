@@ -43,26 +43,81 @@ namespace MISA.CukCuk.BL.BaseBL
             return _baseDL.GetAllRecord();
         }
 
-        public PagingData<T> GetPaging(long pageSize, long pageNumber, string? textSearch, string? sort)
+        public PagingData<T> GetPaging(long pageSize, long pageNumber, List<FilterPaging> filterPagings, string? sort)
         {
             string queryWhere = null;
 
             // Set sort theo ModifiedDate nếu k truyền
             if (string.IsNullOrEmpty(sort))
             {
-                sort = $"{Resource.SortModifiedDateDESC1}";
+                sort = $"{QueryCondition.ModifiedDate}";
             }
 
             // Kiểm tra chuỗi filter rỗng
-            if (!string.IsNullOrEmpty(textSearch))
+            if (filterPagings != null)
             {
                 // Danh sách các item cần query cho WHERE
                 //var listFilter = JsonSerializer.Deserialize<List<FilterPaging>>(textSearch);
 
-                //queryWhere = QueryCondition.GetQueryStringWhere(listFilter);
-                queryWhere = textSearch;
+                queryWhere = BuildWhereFilter(filterPagings);
+                //queryWhere = textSearch;
             }
             return _baseDL.GetPaging(pageSize, pageNumber, queryWhere, sort);
+        }
+
+        private string BuildWhereFilter(List<FilterPaging> listFilter)
+        {
+            string baseWhere = "";
+            string[] listFilterBuild = new string[listFilter.Count];
+            int i = 0;
+            foreach (var item in listFilter)
+            {
+                string filterBuild = "";
+                switch (item.Operater)
+                {
+                    case QueryCondition.LIKE:
+                        filterBuild = $"{item.Field} like '%{item.Value}%'";
+                        break;
+                    case QueryCondition.EQUAL:
+                        filterBuild = $"{item.Field} = {item.Value}";
+                        break;
+                    case QueryCondition.START_WIDTH:
+                        filterBuild = $"{item.Field} like '%{item.Value}'";
+                        break;
+                    case QueryCondition.END_WIDTH:
+                        filterBuild = $"{item.Field} like '{item.Value}%'";
+                        break;
+                    case QueryCondition.NOTLIKE:
+                        filterBuild = $"{item.Field} not like '%{item.Value}%'";
+                        break;
+                    case QueryCondition.GREATER:
+                        filterBuild = $"{item.Field} > {item.Value}";
+                        break;
+                    case QueryCondition.GREATER_OR_EQUAL:
+                        filterBuild = $"{item.Field} >= {item.Value}";
+                        break;
+                    case QueryCondition.LESS:
+                        filterBuild = $"{item.Field} < {item.Value}";
+                        break;
+                    case QueryCondition.LESS_OR_EQUAL:
+                        filterBuild = $"{item.Field} <= {item.Value}";
+                        break;
+                    default:
+                        break;
+                }
+                listFilterBuild[i] = filterBuild;
+                if (i == 0)
+                {
+                    baseWhere += $" {filterBuild}";
+                }
+                else
+                {
+                    baseWhere += $" AND {filterBuild}";
+                }
+                i++;
+
+            }
+            return baseWhere;
         }
 
         public T GetRecordById(Guid idRecord)

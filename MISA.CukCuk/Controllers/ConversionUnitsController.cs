@@ -24,9 +24,5 @@ namespace MISA.CukCuk.API.Controllers
             return StatusCode(StatusCodes.Status405MethodNotAllowed);
         }
 
-        public override IActionResult FilterAndPaging([FromQuery] string? textSearch, [FromQuery] long pageSize, [FromQuery] long pageNumber, [FromQuery] string? sort)
-        {
-            return StatusCode(StatusCodes.Status405MethodNotAllowed);
-        }
     }
 }
