@@ -237,15 +237,15 @@ namespace MISA.CukCuk.BL.BaseBL
                 foreach (var attrCustom in attrCustoms)
                 {
                     var typeofAttr = attrCustom.GetType();
-                    if (typeofAttr == typeof(KeyAttribute))
-                    {
+                    //if (typeofAttr == typeof(KeyAttribute))
+                    //{
 
-                        if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
-                        {
-                            isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_KeyAttribue);
-                        }
-                    }
+                    //    if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
+                    //    {
+                    //        isValid = false;
+                    //        errorList.Add(Common.Resource.Resource.UserMsg_KeyAttribue);
+                    //    }
+                    //}
 
                     // Validate tên đơn vị không được bỏ trống
                     if (typeofAttr == typeof(UnitNameNotEmpty))
