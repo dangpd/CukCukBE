@@ -79,7 +79,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         filterBuild = $"{item.Field} like '%{item.Value}%'";
                         break;
                     case QueryCondition.EQUAL:
-                        filterBuild = $"{item.Field} = {item.Value}";
+                        filterBuild = $"{item.Field} = '{item.Value}'";
                         break;
                     case QueryCondition.START_WIDTH:
                         filterBuild = $"{item.Field} like '%{item.Value}'";
@@ -91,16 +91,16 @@ namespace MISA.CukCuk.BL.BaseBL
                         filterBuild = $"{item.Field} not like '%{item.Value}%'";
                         break;
                     case QueryCondition.GREATER:
-                        filterBuild = $"{item.Field} > {item.Value}";
+                        filterBuild = $"{item.Field} > '{item.Value}'";
                         break;
                     case QueryCondition.GREATER_OR_EQUAL:
-                        filterBuild = $"{item.Field} >= {item.Value}";
+                        filterBuild = $"{item.Field} >= '{item.Value}'";
                         break;
                     case QueryCondition.LESS:
-                        filterBuild = $"{item.Field} < {item.Value}";
+                        filterBuild = $"{item.Field} < '{item.Value}'";
                         break;
                     case QueryCondition.LESS_OR_EQUAL:
-                        filterBuild = $"{item.Field} <= {item.Value}";
+                        filterBuild = $"{item.Field} <= '{item.Value}'";
                         break;
                     default:
                         break;
@@ -128,9 +128,9 @@ namespace MISA.CukCuk.BL.BaseBL
                 throw new MISAException(
                     new ErrorResult(
                         Common.Enums.ErrorCode.NotExistOrDeleted,
-                        Error.NotExistOrIsDeleted,
-                        Error.NotExistOrIsDeleted,
-                        Error.NotExistOrIsDeleted,
+                        Error.NotExistOrDeleted,
+                        Error.NotExistOrDeleted,
+                        Error.NotExistOrDeleted,
                         ""
                     )
                 );
@@ -187,9 +187,9 @@ namespace MISA.CukCuk.BL.BaseBL
                 throw new MISAException(
                     new ErrorResult(
                         Common.Enums.ErrorCode.NotExistOrDeleted,
-                        Error.NotExistOrIsDeleted,
-                        Error.NotExistOrIsDeleted,
-                        Error.NotExistOrIsDeleted,
+                        Error.NotExistOrDeleted,
+                        Error.NotExistOrDeleted,
+                        Error.NotExistOrDeleted,
                         ""
                     )
                 );
@@ -205,9 +205,9 @@ namespace MISA.CukCuk.BL.BaseBL
                 throw new MISAException(
                     new ErrorResult(
                         Common.Enums.ErrorCode.NotExistOrDeleted,
-                        Error.NotExistOrIsDeleted,
-                        Error.NotExistOrIsDeleted,
-                        Error.NotExistOrIsDeleted,
+                        Error.NotExistOrDeleted,
+                        Error.NotExistOrDeleted,
+                        Error.NotExistOrDeleted,
                         ""
                     )
                 );
@@ -237,15 +237,6 @@ namespace MISA.CukCuk.BL.BaseBL
                 foreach (var attrCustom in attrCustoms)
                 {
                     var typeofAttr = attrCustom.GetType();
-                    //if (typeofAttr == typeof(KeyAttribute))
-                    //{
-
-                    //    if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
-                    //    {
-                    //        isValid = false;
-                    //        errorList.Add(Common.Resource.Resource.UserMsg_KeyAttribue);
-                    //    }
-                    //}
 
                     // Validate tên đơn vị không được bỏ trống
                     if (typeofAttr == typeof(UnitNameNotEmpty))
@@ -254,7 +245,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_UnitNameNotEmpty);
+                            errorList.Add(Common.Resource.Error.UnitNameNotEmpty);
                         }
                     }
 
@@ -264,7 +255,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_StockNameNotEmpty);
+                            errorList.Add(Common.Resource.Error.StockNameNotEmpty);
                         }
                     }
 
@@ -274,7 +265,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_StockCodeNotEmpty);
+                            errorList.Add(Common.Resource.Error.StockCodeNotEmpty);
                         }
                     }
 
@@ -284,7 +275,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_CategoryNameNotEmpty);
+                            errorList.Add(Common.Resource.Error.CategoryNameNotEmpty);
                         }
                     }
 
@@ -294,7 +285,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_CategoryCodeNotEmpty);
+                            errorList.Add(Common.Resource.Error.CategoryCodeNotEmpty);
                         }
                     }
 
@@ -304,7 +295,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_MaterialNameNotEmpty);
+                            errorList.Add(Common.Resource.Error.MaterialNameNotEmpty);
                         }
                     }
 
@@ -314,7 +305,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_MaterialCodeNotEmpty);
+                            errorList.Add(Common.Resource.Error.MaterialCodeNotEmpty);
                         }
                     }
 
@@ -324,7 +315,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_FeatureNotEmpty);
+                            errorList.Add(Common.Resource.Error.FeatureNotEmpty);
                         }
                     }
 
@@ -334,7 +325,7 @@ namespace MISA.CukCuk.BL.BaseBL
                         if (string.IsNullOrEmpty(propValue?.ToString()?.Trim()))
                         {
                             isValid = false;
-                            errorList.Add(Common.Resource.Resource.UserMsg_ConversionUnitIdNotEmpty);
+                            errorList.Add(Common.Resource.Error.ConversionUnitIdNotEmpty);
                         }
                     }
                 }
@@ -359,17 +350,6 @@ namespace MISA.CukCuk.BL.BaseBL
         {
             return null;
         }
-
-        /// <summary>
-        /// Kiểm tra mã trùng
-        /// </summary>
-        /// <param name="record"></param>
-        /// <param name="recordID"></param>
-        /// <returns>bool kiểm tra có trùng hay không</returns>
-        //protected virtual ServiceResult CheckDuplicateCode(Guid? recordID, T record)
-        //{
-        //    return new ServiceResult { };
-        //}
 
     }
 }

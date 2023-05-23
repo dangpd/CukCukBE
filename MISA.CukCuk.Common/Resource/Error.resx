@@ -118,12 +118,20 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnUnknownError" xml:space="preserve">
-    <value>Có lỗi xảy ra. Vui lòng liên hệ MISA</value>
+    <value>000</value>
     <comment>Có lỗi xảy ra. Vui lòng liên hệ MISA</comment>
   </data>
-  <data name="DuplicateCode" xml:space="preserve">
-    <value>Trùng mã</value>
-    <comment>Trùng mã</comment>
+  <data name="CategoryCodeNotEmpty" xml:space="preserve">
+    <value>012</value>
+    <comment>Mã nhóm nguyên vật liệu không được bỏ trống</comment>
+  </data>
+  <data name="CategoryNameNotEmpty" xml:space="preserve">
+    <value>013</value>
+    <comment>Tên nhóm nguyên vật liệu không được bỏ trống</comment>
+  </data>
+  <data name="ConversionUnitIdNotEmpty" xml:space="preserve">
+    <value>014</value>
+    <comment>Đơn vị tính không được bỏ trống</comment>
   </data>
   <data name="DuplicateConversionUnit" xml:space="preserve">
     <value>001</value>
@@ -133,15 +141,15 @@
     <value>002</value>
     <comment>Trùng mã nguyên vật liệu</comment>
   </data>
-  <data name="DuplicateMaterialCode" xml:space="preserve">
+  <data name="DuplicateMaterialCategory" xml:space="preserve">
     <value>003</value>
     <comment>Trùng mã nguyên vật liệu</comment>
   </data>
-  <data name="DuplicateStockCode" xml:space="preserve">
+  <data name="DuplicateStock" xml:space="preserve">
     <value>004</value>
     <comment>Trùng mã kho ngầm định</comment>
   </data>
-  <data name="DuplicateUnitName" xml:space="preserve">
+  <data name="DuplicateUnit" xml:space="preserve">
     <value>005</value>
     <comment>Trùng tên đơn vị tính</comment>
   </data>
@@ -149,9 +157,21 @@
     <value>500</value>
     <comment>Lỗi exception</comment>
   </data>
+  <data name="FeatureNotEmpty" xml:space="preserve">
+    <value>017</value>
+    <comment>Tính chất không được bỏ trống</comment>
+  </data>
   <data name="InvalidData" xml:space="preserve">
     <value>400</value>
     <comment>Dữ liệu không hợp lệ</comment>
+  </data>
+  <data name="MaterialCodeNotEmpty" xml:space="preserve">
+    <value>015</value>
+    <comment>Mã nguyên liệu không được bỏ trống</comment>
+  </data>
+  <data name="MaterialNameNotEmpty" xml:space="preserve">
+    <value>016</value>
+    <comment>Tên nguyên vật liệu không được bỏ trống</comment>
   </data>
   <data name="NoDefine" xml:space="preserve">
     <value>008</value>
@@ -161,8 +181,16 @@
     <value>009</value>
     <comment>Bản ghi đã bị xóa hoặc không tồn tại</comment>
   </data>
-  <data name="NotExistOrIsDeleted" xml:space="preserve">
-    <value>Bản ghi đã bị xóa hoặc không tồn tại</value>
-    <comment>Bản ghi đã bị xóa hoặc không tồn tại</comment>
+  <data name="StockCodeNotEmpty" xml:space="preserve">
+    <value>011</value>
+    <comment>Mã kho không được bỏ trống</comment>
+  </data>
+  <data name="StockNameNotEmpty" xml:space="preserve">
+    <value>018</value>
+    <comment>Tên kho không được bỏ trống</comment>
+  </data>
+  <data name="UnitNameNotEmpty" xml:space="preserve">
+    <value>010</value>
+    <comment>Tên đơn vị không được bỏ trông</comment>
   </data>
 </root>

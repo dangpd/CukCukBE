@@ -30,17 +30,21 @@ namespace MISA.CukCuk.Common.Error
                 // Trùng mã nguyên vật liệu
                 if (tableName == TableName.Material)
                 {
-                    errorCode = Common.Resource.Error.DuplicateMaterialCode;
+                    errorCode = Common.Resource.Error.DuplicateMaterial;
+                }
+                else if (tableName == TableName.MaterialCategory)
+                {
+                    errorCode = Common.Resource.Error.DuplicateMaterialCategory;
                 }
                 // Trùng mã kho ngầm định
                 else if (tableName == TableName.Stock)
                 {
-                    errorCode = Common.Resource.Error.DuplicateStockCode;
+                    errorCode = Common.Resource.Error.DuplicateStock;
                 }
                 // Trùng tên đơn vị tính
                 else if (tableName == TableName.Unit)
                 {
-                    errorCode = Common.Resource.Error.DuplicateUnitName;
+                    errorCode = Common.Resource.Error.DuplicateUnit;
                 }
                 // Trùng tên đơn vị chuyển đổi
                 else if (tableName == TableName.ConversionUnit)
@@ -51,8 +55,8 @@ namespace MISA.CukCuk.Common.Error
 
                 return new ErrorResult(
                     Enums.ErrorCode.InvalidData,
-                    Common.Resource.Error.DuplicateCode,
-                    Common.Resource.Error.DuplicateCode,
+                    Common.Resource.Resource.DuplicateCode,
+                    Common.Resource.Resource.DuplicateCode,
                     errorCode,
                     "");
             }

@@ -61,7 +61,7 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Có lỗi xảy ra. Vui lòng liên hệ MISA.
+        ///   Looks up a localized string similar to 000.
         /// </summary>
         public static string AnUnknownError {
             get {
@@ -70,11 +70,29 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Trùng mã.
+        ///   Looks up a localized string similar to 012.
         /// </summary>
-        public static string DuplicateCode {
+        public static string CategoryCodeNotEmpty {
             get {
-                return ResourceManager.GetString("DuplicateCode", resourceCulture);
+                return ResourceManager.GetString("CategoryCodeNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 013.
+        /// </summary>
+        public static string CategoryNameNotEmpty {
+            get {
+                return ResourceManager.GetString("CategoryNameNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 014.
+        /// </summary>
+        public static string ConversionUnitIdNotEmpty {
+            get {
+                return ResourceManager.GetString("ConversionUnitIdNotEmpty", resourceCulture);
             }
         }
         
@@ -99,27 +117,27 @@ namespace MISA.CukCuk.Common.Resource {
         /// <summary>
         ///   Looks up a localized string similar to 003.
         /// </summary>
-        public static string DuplicateMaterialCode {
+        public static string DuplicateMaterialCategory {
             get {
-                return ResourceManager.GetString("DuplicateMaterialCode", resourceCulture);
+                return ResourceManager.GetString("DuplicateMaterialCategory", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 004.
         /// </summary>
-        public static string DuplicateStockCode {
+        public static string DuplicateStock {
             get {
-                return ResourceManager.GetString("DuplicateStockCode", resourceCulture);
+                return ResourceManager.GetString("DuplicateStock", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to 005.
         /// </summary>
-        public static string DuplicateUnitName {
+        public static string DuplicateUnit {
             get {
-                return ResourceManager.GetString("DuplicateUnitName", resourceCulture);
+                return ResourceManager.GetString("DuplicateUnit", resourceCulture);
             }
         }
         
@@ -133,11 +151,38 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 017.
+        /// </summary>
+        public static string FeatureNotEmpty {
+            get {
+                return ResourceManager.GetString("FeatureNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to 400.
         /// </summary>
         public static string InvalidData {
             get {
                 return ResourceManager.GetString("InvalidData", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 015.
+        /// </summary>
+        public static string MaterialCodeNotEmpty {
+            get {
+                return ResourceManager.GetString("MaterialCodeNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 016.
+        /// </summary>
+        public static string MaterialNameNotEmpty {
+            get {
+                return ResourceManager.GetString("MaterialNameNotEmpty", resourceCulture);
             }
         }
         
@@ -160,11 +205,29 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bản ghi đã bị xóa hoặc không tồn tại.
+        ///   Looks up a localized string similar to 011.
         /// </summary>
-        public static string NotExistOrIsDeleted {
+        public static string StockCodeNotEmpty {
             get {
-                return ResourceManager.GetString("NotExistOrIsDeleted", resourceCulture);
+                return ResourceManager.GetString("StockCodeNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 018.
+        /// </summary>
+        public static string StockNameNotEmpty {
+            get {
+                return ResourceManager.GetString("StockNameNotEmpty", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 010.
+        /// </summary>
+        public static string UnitNameNotEmpty {
+            get {
+                return ResourceManager.GetString("UnitNameNotEmpty", resourceCulture);
             }
         }
     }

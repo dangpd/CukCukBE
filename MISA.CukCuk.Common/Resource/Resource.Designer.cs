@@ -124,74 +124,20 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Trùng mã.
+        /// </summary>
+        public static string DuplicateCode {
+            get {
+                return ResourceManager.GetString("DuplicateCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to .
         /// </summary>
         public static string Exception {
             get {
                 return ResourceManager.GetString("Exception", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mã nhóm nguyên vật liệu không được bỏ trống.
-        /// </summary>
-        public static string UserMsg_CategoryCodeNotEmpty {
-            get {
-                return ResourceManager.GetString("UserMsg_CategoryCodeNotEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Tên nhóm nguyên vật liệu không được bỏ trống.
-        /// </summary>
-        public static string UserMsg_CategoryNameNotEmpty {
-            get {
-                return ResourceManager.GetString("UserMsg_CategoryNameNotEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Đơn vị tính không được bỏ trống.
-        /// </summary>
-        public static string UserMsg_ConversionUnitIdNotEmpty {
-            get {
-                return ResourceManager.GetString("UserMsg_ConversionUnitIdNotEmpty", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Xoá thất bại, vui lòng thử lại.
-        /// </summary>
-        public static string UserMsg_DeleteFailed {
-            get {
-                return ResourceManager.GetString("UserMsg_DeleteFailed", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mã đã tồn tại trong hệ thống.
-        /// </summary>
-        public static string UserMsg_DuplicateCode {
-            get {
-                return ResourceManager.GetString("UserMsg_DuplicateCode", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Mã đã tồn tại trong hệ thống.
-        /// </summary>
-        public static string UserMsg_DuplicateCode1 {
-            get {
-                return ResourceManager.GetString("UserMsg_DuplicateCode1", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Có lỗi xảy ra, vui lòng liên hệ MISA để được hỗ trợ.
-        /// </summary>
-        public static string UserMsg_Exception {
-            get {
-                return ResourceManager.GetString("UserMsg_Exception", resourceCulture);
             }
         }
         

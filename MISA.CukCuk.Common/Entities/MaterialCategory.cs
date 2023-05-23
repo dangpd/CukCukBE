@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace MISA.CukCuk.Common.Entities
 {
+    [Table("materialcategory")]
     public class MaterialCategory
     {
         /// <summary>
