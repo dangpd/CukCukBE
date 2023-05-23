@@ -45,12 +45,20 @@ namespace MISA.CukCuk.BL.BaseBL
 
         public PagingData<T> GetPaging(long pageSize, long pageNumber, List<FilterPaging> filterPagings, string? sort)
         {
+            string name = typeof(T).Name;
             string queryWhere = null;
 
             // Set sort theo ModifiedDate nếu k truyền
             if (string.IsNullOrEmpty(sort))
             {
-                sort = $"{QueryCondition.ModifiedDate}";
+                if (name == QueryCondition.ClassMaterial)
+                {
+                    sort = $"{QueryCondition.MaterialSort}";
+                }
+                else
+                {
+                    sort = $"{QueryCondition.ModifiedDate}";
+                }
             }
 
             // Kiểm tra chuỗi filter rỗng
@@ -65,7 +73,7 @@ namespace MISA.CukCuk.BL.BaseBL
             return _baseDL.GetPaging(pageSize, pageNumber, queryWhere, sort);
         }
 
-        private string BuildWhereFilter(List<FilterPaging> listFilter)
+        protected virtual string BuildWhereFilter(List<FilterPaging> listFilter)
         {
             string baseWhere = "";
             string[] listFilterBuild = new string[listFilter.Count];

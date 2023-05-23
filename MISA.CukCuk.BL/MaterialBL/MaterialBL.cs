@@ -36,7 +36,76 @@ namespace MISA.CukCuk.BL.MaterialBL
         {
             return _materialDL.GetMaterialByID(materialId); // bản ghi cần lấy 
         }
+        public string convertBuilderString(FilterPaging filterPaging)
+        {
+            if (filterPaging.Field == TableName.FeildConversionUnit)
+            {
+                return $"u.{filterPaging.Field} like '%{filterPaging.Value}%'";
+            }
+            else if (filterPaging.Field == TableName.FeildCategory)
+            {
+                return $"m1.{filterPaging.Field} like '%{filterPaging.Value}%'";
+            }
+            else
+            {
+                return $"m.{filterPaging.Field} like '%{filterPaging.Value}%'";
+            }
+        }
 
+        protected override string BuildWhereFilter(List<FilterPaging> listFilter)
+        {
+            string baseWhere = "";
+            string[] listFilterBuild = new string[listFilter.Count];
+            int i = 0;
+            foreach (var item in listFilter)
+            {
+                string filterBuild = "";
+                switch (item.Operater)
+                {
+                    case QueryCondition.LIKE:
+                        filterBuild =  convertBuilderString(item);
+                        break;
+                    case QueryCondition.EQUAL:
+                        filterBuild = convertBuilderString(item);
+                        break;
+                    case QueryCondition.START_WIDTH:
+                        filterBuild = convertBuilderString(item);
+                        break;
+                    case QueryCondition.END_WIDTH:
+                        filterBuild = convertBuilderString(item);
+                        break;
+                    case QueryCondition.NOTLIKE:
+                        filterBuild = convertBuilderString(item);
+                        break;
+                    case QueryCondition.GREATER:
+                        filterBuild = convertBuilderString(item);
+                        break;
+                    case QueryCondition.GREATER_OR_EQUAL:
+                        filterBuild = convertBuilderString(item);
+                        break;
+                    case QueryCondition.LESS:
+                        filterBuild = convertBuilderString(item);
+                        break;
+                    case QueryCondition.LESS_OR_EQUAL:
+                        filterBuild = convertBuilderString(item);
+                        break;
+                    default:
+                        break;
+                }
+                listFilterBuild[i] = filterBuild;
+                if (i == 0)
+                {
+                    baseWhere += $" {filterBuild}";
+                }
+                else
+                {
+                    baseWhere += $" AND {filterBuild}";
+                }
+                i++;
+
+            }
+            return baseWhere;
+        }
         public int InsertMaterial(InforMaterial inforMaterial)
         {
             var validateMaterial = ValidateData(inforMaterial.Material); // validate nguyên vật liệu

@@ -58,5 +58,9 @@ namespace MISA.CukCuk.Common.Entities.DTO
         /// Ngày sửa gần nhất
         /// </summary>
         public const string ModifiedDate = "ModifiedDate DESC";
+
+        public const string ClassMaterial = "Material";
+
+        public const string MaterialSort = "m.ModifiedDate DESC";
     }
 }

@@ -89,7 +89,7 @@ namespace MISA.CukCuk.BaseController
         /// <param name="pageNumber"> Vị trí trang </param>
         /// <returns></returns>
         [HttpPost("Filter")]
-        public virtual IActionResult FilterAndPaging([FromBody] List<FilterPaging> filterPagings, [FromQuery] long pageSize = 20, [FromQuery] long pageNumber = 1, [FromQuery] string? sort = "ModifiedDate DESC")
+        public virtual IActionResult FilterAndPaging([FromBody] List<FilterPaging> filterPagings, [FromQuery] long pageSize = 20, [FromQuery] long pageNumber = 1, [FromQuery] string? sort = "")
         {
             try
             {

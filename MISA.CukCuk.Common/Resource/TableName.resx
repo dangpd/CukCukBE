@@ -121,6 +121,12 @@
     <value>conversionunit</value>
     <comment>Bảng đơn vị chuyển đổi</comment>
   </data>
+  <data name="FeildCategory" xml:space="preserve">
+    <value>categoryName</value>
+  </data>
+  <data name="FeildConversionUnit" xml:space="preserve">
+    <value>conversionUnitName</value>
+  </data>
   <data name="Material" xml:space="preserve">
     <value>material</value>
     <comment>Bảng nguyên vật liệu</comment>

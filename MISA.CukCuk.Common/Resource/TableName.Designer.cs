@@ -70,6 +70,24 @@ namespace MISA.CukCuk.Common.Resource {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to categoryName.
+        /// </summary>
+        public static string FeildCategory {
+            get {
+                return ResourceManager.GetString("FeildCategory", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to conversionUnitName.
+        /// </summary>
+        public static string FeildConversionUnit {
+            get {
+                return ResourceManager.GetString("FeildConversionUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to material.
         /// </summary>
         public static string Material {
