@@ -32,10 +32,7 @@ namespace MISA.CukCuk.BL.MaterialBL
         #endregion
 
         #region Method
-        public InforMaterial GetMaterialByID(Guid materialId)
-        {
-            return _materialDL.GetMaterialByID(materialId); // bản ghi cần lấy 
-        }
+
         public string convertBuilderString(FilterPaging filterPaging)
         {
             if (filterPaging.Field == TableName.FeildConversionUnit)
@@ -106,10 +103,16 @@ namespace MISA.CukCuk.BL.MaterialBL
             }
             return baseWhere;
         }
+
+        public InforMaterial GetMaterialByID(Guid materialId)
+        {
+            return _materialDL.GetMaterialByID(materialId); // bản ghi cần lấy 
+        }
+
+
         public int InsertMaterial(InforMaterial inforMaterial)
         {
             var validateMaterial = ValidateData(inforMaterial.Material); // validate nguyên vật liệu
-            var baseConversionUnit = new BaseBL<ConversionUnit>(new BaseDL<ConversionUnit>());
             // Validate nguyên vật liệu
             if (validateMaterial != null)
             {
@@ -124,8 +127,10 @@ namespace MISA.CukCuk.BL.MaterialBL
                     );
             }
             // Validate danh sách đơn vị chuyển đổi
+            var baseConversionUnit = new BaseBL<ConversionUnit>(new BaseDL<ConversionUnit>());
             foreach (var item in inforMaterial.ListConversionUnits)
             {
+                //var convert = (ConversionUnit)item;
                 var validateConversionUnit = baseConversionUnit.ValidateData(item); // validate đơn vị chuyển đổi
                 // thất bại return lỗi
                 if (validateConversionUnit != null)
@@ -148,7 +153,6 @@ namespace MISA.CukCuk.BL.MaterialBL
         public int UpdateMaterial(Guid materialId, InforMaterial updateMaterial)
         {
             var validateMaterial = ValidateData(updateMaterial.Material); // validate nguyên vật liệu
-            var baseConversionUnit = new BaseBL<ConversionUnit>(new BaseDL<ConversionUnit>());
             // Validate nguyên vật liệu
             if (validateMaterial != null)
             {
@@ -164,6 +168,7 @@ namespace MISA.CukCuk.BL.MaterialBL
             }
 
             // Validate danh sách đơn vị chuyển đổi
+            var baseConversionUnit = new BaseBL<ConversionUnit>(new BaseDL<ConversionUnit>());
             foreach (var item in updateMaterial.ListConversionUnits)
             {
                 var validateConversionUnit = baseConversionUnit.ValidateData(item); // validate đơn vị chuyển đổi
@@ -181,6 +186,8 @@ namespace MISA.CukCuk.BL.MaterialBL
                         );
                 }
             }
+
+
 
             return _materialDL.UpdateMaterial(materialId, updateMaterial);
         }

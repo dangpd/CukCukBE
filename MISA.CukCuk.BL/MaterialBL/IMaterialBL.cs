@@ -11,6 +11,14 @@ namespace MISA.CukCuk.BL.MaterialBL
 {
     public interface IMaterialBL : IBaseBL<Material>
     {
+
+        /// <summary>
+        /// Lấy mã max 
+        /// </summary>
+        /// <param name="startCode">Bắt đầu mã</param>
+        /// <returns> số lớn nhất bắt đầu với mã tương ứng </returns>
+        //public string GetNewCode(string code);
+
         /// <summary>
         /// Thêm mới nguyên vật liệu
         /// </summary>
@@ -24,13 +32,13 @@ namespace MISA.CukCuk.BL.MaterialBL
         /// </summary>
         /// <param name="inforMaterial"></param>
         /// <returns></returns>
-        public int UpdateMaterial(Guid materialId, InforMaterial updateMaterial);
+        public int UpdateMaterial(Guid materialID, InforMaterial updateMaterial);
 
         /// <summary>
         /// Lấy nguyên liệu theo id
         /// </summary>
         /// <param name="materialID"></param>
         /// <returns></returns>
-        public InforMaterial GetMaterialByID(Guid materialId);
+        public InforMaterial GetMaterialByID(Guid materialID);
     }
 }

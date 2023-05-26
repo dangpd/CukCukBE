@@ -39,5 +39,10 @@ namespace MISA.CukCuk.DL.MaterialDL
         /// <param name="idRecord"> id bản ghi cần xóa </param>
         /// <returns> Số bản ghi bị tác động </returns>
         public int DeleteOneRecord(Guid idRecord);
+
+        public Material getByCode(string code);
+
+
+        public List<ConversionUnit> getConversionUnits(Guid id);
     }
 }

@@ -65,10 +65,7 @@ namespace MISA.CukCuk.BL.BaseBL
             if (filterPagings != null)
             {
                 // Danh sách các item cần query cho WHERE
-                //var listFilter = JsonSerializer.Deserialize<List<FilterPaging>>(textSearch);
-
                 queryWhere = BuildWhereFilter(filterPagings);
-                //queryWhere = textSearch;
             }
             return _baseDL.GetPaging(pageSize, pageNumber, queryWhere, sort);
         }

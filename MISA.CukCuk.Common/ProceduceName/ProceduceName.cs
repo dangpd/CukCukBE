@@ -29,5 +29,10 @@ namespace MISA.CukCuk.Common.ProceduceName
         // Kiểm tra tồn tại
         public static string DuplicateCode = "Proc_{0}_DuplicateCode";
 
+        public static string GetByCode = "Proc_Material_GetByCode";
+        public static string getListConvertionUnit = "Proc_Conversionunit_GetListByID";
+
+        public static string deleteMultipleConvertionUnit = "Proc_Conversionunit_DeleteMultiple";
+
     }
 }

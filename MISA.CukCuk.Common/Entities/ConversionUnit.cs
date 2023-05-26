@@ -12,6 +12,9 @@ namespace MISA.CukCuk.Common.Entities
     [Table("conversionunit")]
     public class ConversionUnit
     {
+        [Key]
+        public Guid ConversionUnitId { get; set; }
+
         /// <summary>
         /// ID đơn vị chuyển đổi
         /// </summary>
@@ -22,7 +25,7 @@ namespace MISA.CukCuk.Common.Entities
         /// Id nguyên vật liệu
         /// </summary>
         [ConversionUnitIdNotEmpty]
-        public Guid ConversionUnitId { get; set; }
+        public Guid UnitId { get; set; }
 
         /// <summary>
         /// Tỷ lệ chuyển đổi
@@ -53,15 +56,5 @@ namespace MISA.CukCuk.Common.Entities
         /// Ngày sửa gần nhất
         /// </summary>
         public DateTime? ModifiedDate { get; set; }
-
-        /// <summary>
-        /// Loại sửa đổi
-        /// </summary>
-        public Enums.Type? Type { get; set; }
-
-        /// <summary>
-        /// Id cũ của đơn vị chuyển đổi khi sửa
-        /// </summary>  
-        public Guid? ConversionUnitIDOld { get; set; }
     }
 }
