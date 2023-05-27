@@ -16,6 +16,6 @@ namespace MISA.CukCuk.Common.Entities.DTO
         /// <summary>
         /// Danh sách đơn vị chuyển đổi
         /// </summary>
-        public List<ConversionUnit>? ListConversionUnits { get; set; }
+        public List<ConversionUnit>? ListConversionUnits { get; set; } = new List<ConversionUnit>();
     }
 }
